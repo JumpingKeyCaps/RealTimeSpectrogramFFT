@@ -1,5 +1,9 @@
 #  Real Time audio Spectrogram
 
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white)
+![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-4285F4?logo=android&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?logo=androidstudio&logoColor=white)
+
 A Jetpack Compose component for displaying real-time audio spectrograms on Android, built for audio signal visualization and debugging.
 Ideal for signal processing, acoustic experiments, or retro audio interfaces.
 
@@ -40,6 +44,15 @@ This component is designed to be driven by a real-time FFT pipeline, typically p
 
 - Jetpack Compose (Canvas, ImageBitmap, Modifier)
 - No external libraries — pure Kotlin
+
+---
+
+## 📸 Screenshots
+
+| Musique demo | Tone demo | Ultrasound demo |
+|:---:|:---:|:---:|
+| ![Musique](screenshots/demospectro1.gif) | ![Tone](screenshots/null.gif) | ![Ultrasound](screenshots/null.gif) |
+
 
 ## 🧪 Typical Use Cases
 
