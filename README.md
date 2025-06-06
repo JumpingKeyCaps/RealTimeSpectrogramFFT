@@ -27,6 +27,52 @@ Ideal for signal processing, acoustic experiments, or retro audio interfaces.
   - Time steps (horizontal resolution)
 - 💡 Supports optional normalization and intensity scaling
 
+---
+
+## 📸 Screenshots
+
+| Musique demo | Tone 5000hz | Ultrasound 20Khz |
+|:---:|:---:|:---:|
+| ![Musique](screenshots/demospectro1.gif) | ![Tone](screenshots/demotone.gif) |  ![Tone](screenshots/demoultrason.gif) |
+
+---
+
+## 📐 Default Resolution & FFT Settings
+
+By default, the component is configured with:
+
+- **FFT size**: `512`
+- **Sample rate**: `48000 Hz`
+
+This provides a frequency resolution of:
+
+48000 / 512 = **93.75 Hz** per frequency bin
+
+Each horizontal slice of the spectrogram therefore represents ~94 Hz of bandwidth.
+
+You can increase resolution by using a larger FFT size (e.g. `1024`, `2048`), which allows for finer frequency detail (e.g. 46.9 Hz or 23.4 Hz/bin respectively).  
+**However**, note that increasing the FFT size also increases the time window per frame, making the spectrogram update more slowly and reducing time resolution.
+
+Choose your FFT size based on the tradeoff between frequency precision and real-time responsiveness.
+
+## 📊 FFT Size vs Frequency Resolution
+
+| FFT Size | Frequency Resolution (Hz/bin) | Time Window (ms) | Description                          |
+|----------|-------------------------------|------------------|--------------------------------------|
+| 256      | 187.5 Hz                      | ~5.3 ms          | Very fast, but low frequency detail  |
+| 512      | 93.75 Hz                      | ~10.6 ms         | ⚙️ Default — good balance             |
+| 1024     | 46.88 Hz                      | ~21.3 ms         | Better frequency accuracy            |
+| 2048     | 23.44 Hz                      | ~42.6 ms         | High resolution, slower updates      |
+| 4096     | 11.72 Hz                      | ~85.3 ms         | Ultra fine detail, very sluggish     |
+
+> 🧠 **Formulas**:
+> - `Frequency Resolution = SampleRate / FFTSize`
+> - `Time Window = FFTSize / SampleRate`
+
+🧭 **Quick take**:
+- Use **larger FFT sizes** for better frequency discrimination (e.g. FSK tones, harmonics).
+- Use **smaller FFT sizes** for more responsive real-time visuals.
+
 ## 🧱 Architecture
 
 - Accepts audio data as a list of `FloatArray` representing FFT magnitudes
@@ -44,15 +90,6 @@ This component is designed to be driven by a real-time FFT pipeline, typically p
 
 - Jetpack Compose (Canvas, ImageBitmap, Modifier)
 - No external libraries — pure Kotlin
-
----
-
-## 📸 Screenshots
-
-| Musique demo | Tone 5000hz | Ultrasound 20Khz |
-|:---:|:---:|:---:|
-| ![Musique](screenshots/demospectro1.gif) | ![Tone](screenshots/demotone.gif) |  ![Tone](screenshots/demoultrason.gif) |
-
 
 ## 🧪 Typical Use Cases
 
