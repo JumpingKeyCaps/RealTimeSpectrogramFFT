@@ -49,9 +49,9 @@ This component is designed to be driven by a real-time FFT pipeline, typically p
 
 ## 📸 Screenshots
 
-| Musique demo | Tone demo | Ultrasound demo |
+| Musique demo | Tone 5000hz | Ultrasound 20Khz |
 |:---:|:---:|:---:|
-| ![Musique](screenshots/demospectro1.gif) | ![Tone](screenshots/null.gif) | ![Ultrasound](screenshots/null.gif) |
+| ![Musique](screenshots/demospectro1.gif) | ![Tone](screenshots/demotone.gif) |  ![Tone](screenshots/demoultrason.gif) |
 
 
 ## 🧪 Typical Use Cases
