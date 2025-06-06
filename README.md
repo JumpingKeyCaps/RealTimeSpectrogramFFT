@@ -55,6 +55,26 @@ You can increase resolution by using a larger FFT size (e.g. `1024`, `2048`), wh
 
 Choose your FFT size based on the tradeoff between frequency precision and real-time responsiveness.
 
+> 🔁 The **time resolution** of the spectrogram depends on how fast you can push new FFT frames — which is determined by both `FFT size` *and* `sample rate`.
+
+Increasing the **sample rate** (e.g. going from `44100 Hz` to `48000 Hz` or more) can **improve visual smoothness** at high FFT sizes, since frames are processed faster in real time.  
+That said, it also increases CPU load and the amount of data per second to handle.
+
+---
+
+### ⚖️ Finding the Right Balance
+
+The visual quality and responsiveness of the spectrogram depends on tuning **three key parameters**:
+
+- 🧮 **FFT size**: affects frequency precision (horizontal resolution in vertical flow spectrogram)
+- 🎛 **Sample rate**: affects how fast frames are processed
+- 🕓 **Spectrogram history**: controls how many past frames are shown (vertical span)
+
+There’s no one-size-fits-all:  
+**Choose the right combo depending on your needs** (e.g. FSK decoding, audio art, live display).
+
+---
+
 ## 📊 FFT Size vs Frequency Resolution
 
 | FFT Size | Frequency Resolution (Hz/bin) | Time Window (ms) | Description                          |
@@ -72,6 +92,7 @@ Choose your FFT size based on the tradeoff between frequency precision and real-
 🧭 **Quick take**:
 - Use **larger FFT sizes** for better frequency discrimination (e.g. FSK tones, harmonics).
 - Use **smaller FFT sizes** for more responsive real-time visuals.
+- Adjust the **sample rate** if needed to optimize performance.
 
 ## 🧱 Architecture
 
